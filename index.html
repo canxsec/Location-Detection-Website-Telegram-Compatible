@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konum ve İletişim Formu</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ana Sayfa: Konum İzin Ver Butonu -->
+    <div id="locationPage" class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-12 text-center">
+                <h1>İletişim için</h1>
+                <button id="getLocationBtn" class="btn btn-primary">click</button>
+                <p class="mt-3">
+                    <span style="color: red; font-weight: bold;">UYARI:</span> 
+                    <span style="color: white;">Girişler kontrollüdür, konum iznini açmadan diğer katmanlara erişemezsin.</span>
+                </p>
+                <div id="warningMessage" class="alert alert-danger mt-4" style="display: none;">
+                    <strong>Uyarı!</strong> Konum izni vermezseniz, diğer katmanlara erişemezsiniz.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Konum Formu: Form Sayfası -->
+    <div id="locationForm" class="container-fluid" style="display: none;">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-12 col-md-6 col-lg-4">
+                <h2 class="text-center">Formu Doldurun</h2>
+                <form action="send_message.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Ad Soyad:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon Numarası:</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız:</label>
+                        <textarea class="form-control" id="message" name="message" required></textarea>
+                    </div>
+                    <input type="hidden" id="location" name="location">
+                    <input type="hidden" id="phoneBrand" name="phoneBrand">
+                    <input type="hidden" id="userAgent" name="userAgent">
+                    <input type="hidden" id="platform" name="platform">
+                    <input type="hidden" id="screenWidth" name="screenWidth">
+                    <input type="hidden" id="screenHeight" name="screenHeight">
+                    <input type="hidden" id="timeZone" name="timeZone">
+                    <button type="submit" class="btn btn-success btn-block">Mesajı Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

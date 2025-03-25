@@ -1,0 +1,72 @@
+/* Genel Sayfa Arka Planı */
+body {
+    background-color: #333; /* Koyu gri arka plan */
+    background-image: url(''); /* Görsel yok, sadece kutular olacak */
+    color: white; /* Yazı rengi beyaz */
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Arka plandaki 1x1 kareler */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle, #000 5%, transparent 6%),
+        radial-gradient(circle, #000 5%, transparent 6%);
+    background-size: 40px 40px; /* Kare boyutlarını ayarlıyoruz */
+    background-position: 0 0, 20px 20px;
+    z-index: -1; /* Arka planda olmasını sağlıyoruz */
+}
+
+/* Sayfa genelinde ortalanmış öğeler */
+.container-fluid {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    width: 100%;
+}
+
+.col-12 {
+    text-align: center;
+}
+
+/* Form Sayfası */
+#locationForm {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 15px;
+}
+
+/* Uyarı mesajı */
+#warningMessage {
+    display: none;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
